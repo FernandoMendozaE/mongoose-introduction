@@ -1,23 +1,20 @@
-const mongosse = require('mongoose')
+require('./connection')
 
-/**
- * Conexión a la base de datos
- */
-const uri = 'mongodb://127.0.0.1:27017/mywebstore'
+const Product = require('./models/Product')
 
-mongosse
-  .connect(uri, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-  }) // Configuración de conexión a la BD
-  .catch(err => console.log(err))
-
-// Eventos
-const db = mongosse.connection
-db.once('open', _ => {
-  console.log(' Database is connected to', uri)
+// Guardar Datos en BD
+const product = new Product({
+  name: 'laptop',
+  description: 'lenovo thinkpad x1 carbon 6th generation',
+  price: 1300.99
 })
 
-db.on('error', error => {
-  console.log(error)
+product.save((err, document) => {
+  if (err) {
+    console.log(err)
+  } else {
+    console.log(document)
+  }
 })
+
+console.log(product)
