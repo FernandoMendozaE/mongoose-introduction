@@ -1,0 +1,3 @@
+// Comando al iniciar la creacion de mongoose
+https://mongoosejs.com/ // Documentation
+$ npm install mongoose // installation
