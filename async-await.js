@@ -2,7 +2,7 @@ require('./connection')
 
 const Product = require('./models/Product')
 
-// Guardar Datos en BD (asincrono)
+// Guardar Datos en BD (asincronamente)
 async function main() {
   const product = new Product({
     name: 'keyboard',
